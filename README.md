@@ -10,6 +10,15 @@ One step up from dev.
 
 3) Run on Alpine
 
+### simple instructions
+
+clone the repo into a directory that you want to work in
+
+run the following command 
+
+sudo docker build -f /opt/vault/Dockerfile .
+
+
 ```
 timkropp@localhost vault]$ sudo docker build -f /opt/vault/Dockerfile .
 Sending build context to Docker daemon 3.584 kB
@@ -44,4 +53,27 @@ Removing intermediate container 9325c2f7c4a9
 Successfully built 6808800d3546
 [timkropp@localhost vault]$ 
 ```
+
+After you see something like the above, run this:
+
+```sudo docker images```
+
+find the image ID - in this case it's 6808800d3546 and tag it:
+
+```sudo docker tag 6808800d3546 vaultalpha```
+
+This is the output with the right name on your newly tagged image
+
+```
+REPOSITORY                    TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+docker.io/vaultalpha          latest              6808800d3546        5 minutes ago       22.83 MB
+docker.io/ubuntu              14.04               fa81ed084842        9 days ago          188.3 MB
+docker.io/alpine              latest              8697b6cc1f48        12 days ago         5.238 MB
+docker.io/gliderlabs/alpine   latest              3adc3de69ee5        12 days ago         5.238 MB
+```
+
+
+Then run it with shell:
+
+```sudo docker run -i -t --rm --entrypoint sh vaultalpha```
 
