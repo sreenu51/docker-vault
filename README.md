@@ -75,5 +75,5 @@ docker.io/gliderlabs/alpine   latest              3adc3de69ee5        12 days ag
 
 Then run it with shell:
 
-```sudo docker run -i -t --rm --entrypoint sh vaultalpha```
+```sudo docker run -i -t --rm --entrypoint sh --cap-add IPC_LOCK vaultalpha```
 
