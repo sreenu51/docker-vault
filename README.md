@@ -16,7 +16,7 @@ clone the repo into a directory that you want to work in
 
 run the following command 
 
-sudo docker build -f /opt/vault/Dockerfile .
+```sudo docker build -f /opt/vault/Dockerfile .```
 
 
 ```
