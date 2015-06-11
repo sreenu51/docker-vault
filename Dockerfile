@@ -10,4 +10,5 @@ COPY vaultconfig.hcl /opt/vault/vaultconfig.hcl
 EXPOSE 8200
 ENV VAULT_ADDR "http://127.0.0.1:8200"
 
-ENTRYPOINT ["/bin/vault", "server"]
+ENTRYPOINT ["/bin/vault"]
+CMD ["server"]

@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+docker run -t -i sometheycallme/vaultalpha help | grep Usage:
