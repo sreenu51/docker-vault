@@ -13,5 +13,5 @@ info "Show image sizes."
 docker images | egrep '^vault\b' | sort
 
 echo
-echo "WARN: you should docker tag the puppet image."
+echo "WARN: you should docker tag the alphavault image."
 echo
