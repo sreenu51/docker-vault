@@ -4,10 +4,10 @@ set -e
 options="--rm"
 echo $@ | grep '\--no-cache' &> /dev/null && options="$options --no-cache" || :
 
-info "Build images."
+echo "Build images."
 docker build $options -t sometheycallme/vaultalpha .
 
-info "Show image sizes."
+echo "Show image sizes."
 docker images | egrep '^vault\b' | sort
 
 echo
