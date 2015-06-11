@@ -1,13 +1,11 @@
 #!/bin/bash
 set -e
 
-. script/functions
-
 options="--rm"
 echo $@ | grep '\--no-cache' &> /dev/null && options="$options --no-cache" || :
 
 info "Build images."
-smitty docker build $options -t docker-vault .
+docker build $options -t sometheycallme/vaultalpha .
 
 info "Show image sizes."
 docker images | egrep '^vault\b' | sort
