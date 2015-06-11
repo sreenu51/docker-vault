@@ -28,6 +28,5 @@ deployment:
       - docker login -e ${mail} -u ${user} -p ${pass}
       - docker tag sometheycallme/vaultalpha sometheycallme/vaultalpha:0.0.1-${CIRCLE_SHA1:0:7}
       - docker push sometheycallme/vaultalpha:0.0.1-${CIRCLE_SHA1:0:7}
-      - docker tag sometheycallme/vaultalpha sometheycallme/vaultalpha:latest
       - docker push sometheycallme/vaultalpha:latest
       - docker logout
