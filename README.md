@@ -20,7 +20,9 @@ run the following command
 
 
 ```
-timkropp@localhost vault]$ sudo docker build -f /opt/vault/Dockerfile .
+
+sudo docker build -f /opt/vault/Dockerfile .
+
 Sending build context to Docker daemon 3.584 kB
 Sending build context to Docker daemon 
 Step 0 : FROM gliderlabs/alpine
@@ -51,7 +53,6 @@ Step 7 : ENTRYPOINT /bin/vault server
  ---> 6808800d3546
 Removing intermediate container 9325c2f7c4a9
 Successfully built 6808800d3546
-[timkropp@localhost vault]$ 
 ```
 
 After you see something like the above, run this:
@@ -62,7 +63,7 @@ find the image ID - in this case it's 6808800d3546 and tag it:
 
 ```sudo docker tag 6808800d3546 vaultalpha```
 
-This is the output with the right name on your newly tagged image
+This is the output with the assigned name tageright name on the newly created image
 
 ```
 REPOSITORY                    TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
@@ -73,7 +74,7 @@ docker.io/gliderlabs/alpine   latest              3adc3de69ee5        12 days ag
 ```
 
 
-Then run it with shell:
+Then run it with shell and IPC_LOCK (resolves mlock issue):
 
 ```sudo docker run -i -t --rm --entrypoint sh --cap-add IPC_LOCK vaultalpha```
 
