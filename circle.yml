@@ -26,8 +26,8 @@ deployment:
     owner: cleanerbot
     commands:
       - docker login -e ${mail} -u ${user} -p ${pass}
-      - docker tag puppet sometheycallme/docker-vault:0.0.1-${CIRCLE_SHA1:0:7}
-      - docker push sometheycallme/docker-vault:0.0.1-${CIRCLE_SHA1:0:7}
-      - docker tag docker-vault sometheycallme/docker-vault:latest
-      - docker push sometheycallme/docker-vault:latest
+      - docker tag sometheycallme/vaultalpha sometheycallme/vaultalpha:0.0.1-${CIRCLE_SHA1:0:7}
+      - docker push sometheycallme/vaultalpha:0.0.1-${CIRCLE_SHA1:0:7}
+      - docker tag sometheycallme/vaultalpha sometheycallme/vaultalpha:latest
+      - docker push sometheycallme/vaultalpha:latest
       - docker logout
