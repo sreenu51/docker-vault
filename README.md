@@ -1,5 +1,5 @@
 # docker-vault
-[![](https://badge.imagelayers.io/cleanerbot/docker-vault.svg)](https://imagelayers.io/?images=cleanerbot/docker-vault:latest 'View image size and layers')&nbsp;
+[![](https://badge.imagelayers.io/sometheycallme/vaultalpha.svg)](https://imagelayers.io/?images=cleanerbot/docker-vault:latest 'View image size and layers')&nbsp;
 [![Circle CI](https://circleci.com/gh/cleanerbot/docker-vault.png?circle-token=4f0cb187a0b1ae8937389ecceca8acf3a8122b8e)](https://circleci.com/gh/sometheycallme/docker-vault/tree/master 'View CI builds')
 
 Project URL: https://github.com/cleanerbot/docker-vault
