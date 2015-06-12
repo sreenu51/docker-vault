@@ -1,4 +1,6 @@
 #!/bin/bash
 set -e
 
+echo "Test for vault server install"
+
 docker run -t -i sometheycallme/vaultalpha help | grep Usage:
