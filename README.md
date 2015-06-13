@@ -15,7 +15,7 @@ One step up from dev.
 
 3) Run on Alpine
 
-### simple instructions
+### Image Pull Instructions
 
 clone the repo into a directory that you want to work in
 
@@ -86,11 +86,22 @@ Once you pull the image, you'll need to run it.   And open another terminal to r
 
 ```sudo docker run -i -t --rm --entrypoint sh --cap-add IPC_LOCK vaultalpha```
 
-In a new terminal window, exec a shell.
+In a new terminal window, exec a shell (grab the image that is running from above command).
 
-```sudo docker exec -it <image hash> sh```
+``` 
+docker ps -a
+
+CONTAINER ID        IMAGE                              COMMAND                CREATED             STATUS                    PORTS               NAMES
+734e7952e070        sometheycallme/vaultalpha:latest   "sh c"                 11 hours ago        Running         
+```
+
+Grab the ID 
+
+```sudo docker exec -it 734e7952e070 sh```
 
 2) Initialize it and grab the keys - you need them to open the vault!
+
+Once you have a separate shell exec'd go ahead and init
 
 ```
 / # vault init 
