@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
-echo "Test for vault server install"
-
+echo "Step1: Test for vault server install"
 docker run -t -i sometheycallme/vaultalpha help | grep Usage:
+
+echo "Step2: Initialize Vault and look for key creation.  Mlock issue requires IPC_LOCK capability"
+echo "Info: Circle CI will bail on the the configuration and startup of Vault"
+docker run -t -i --cap-add IPC_LOCK sometheycallme/vaultalpha server -config=/opt/vault/vaultconfig.hcl | grep Error
