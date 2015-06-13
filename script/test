@@ -6,4 +6,4 @@ docker run -t -i sometheycallme/vaultalpha help | grep Usage:
 
 echo "Step2: Initialize Vault and look for key creation"
 #docker run -t -i sometheycallme/vaultalpha version | grep Vault 
-docker run -t -i sometheycallme/vaultalpha server -config=/opt/vault/vaultconfig.hcl | grep ==> 
+docker run -t -i sometheycallme/vaultalpha server -config=/opt/vault/vaultconfig.hcl | grep Start 
