@@ -78,8 +78,64 @@ docker.io/alpine              latest              8697b6cc1f48        12 days ag
 docker.io/gliderlabs/alpine   latest              3adc3de69ee5        12 days ago         5.238 MB
 ```
 
+### Configuration
 
-Then run it with shell and IPC_LOCK (resolves mlock issue):
+Once you pull the image, you'll need to run it.   And open another terminal to run docker exec to enter the container and launch vault.
+
+1) Run the container
 
 ```sudo docker run -i -t --rm --entrypoint sh --cap-add IPC_LOCK vaultalpha```
+
+In a new terminal window, exec a shell.
+
+```sudo docker exec -it <image hash> sh```
+
+2) Initialize it and grab the keys - you need them to open the vault!
+
+/ # vault init 
+Key 1: 21f086ce697f5b5f8635d07d34b35c9124d043e3654d5df2dbe29f5da4d4979c01
+Key 2: be0092d8505d268cb0d25c447d6eaf8afb2d41ab40f6ffe322175dec36acac9102
+Key 3: 56ecee66b02c8d4ccf7428e26a84e75477170243cc1f721d0033dc0dba9ede2903
+Key 4: e1755c2a285a1daf81490ff344fad54d5585b3e73e5a36e91e2deb0e60caf50004
+Key 5: 09992094c82bb66ffeef7b5553109d93d9bff00fb2b3bb173c096aefecf887b805
+
+Initial Root Token: 112f9aa7-352f-a988-76d2-66f08599013e
+
+Vault initialized with 5 keys and a key threshold of 3!
+
+-----------------------
+
+3) Auth with 3 of the keys to unseal the vault
+
+```
+/ # vault unseal 21f086ce697f5b5f8635d07d34b35c9124d043e3654d5df2dbe29f5da4d4979c01
+<snip>
+/ # vault unseal 56ecee66b02c8d4ccf7428e26a84e75477170243cc1f721d0033dc0dba9ede2903
+<snip>
+/ # vault unseal 56ecee66b02c8d4ccf7428e26a84e75477170243cc1f721d0033dc0dba9ede2903
+<snip>
+```
+
+4) Then (in this case) you can auth with the root token
+
+/ # vault auth 112f9aa7-352f-a988-76d2-66f08599013e
+
+Successfully authenticated! The policies that are associated
+with this token are listed below:
+
+root
+
+5) Finally, test reading and writing secrets
+
+/ # vault write secret/foo password=bar lease=1h
+Success! Data written to: secret/foo
+
+/ # vault read secret/foo
+Key            	Value
+lease_id       	secret/foo/37d4cfb7-98c0-e330-eb32-32c916d326ca
+lease_duration 	3600
+lease_renewable	%!d(string=true)
+lease          	1h
+password       	bar
+/ # 
 
