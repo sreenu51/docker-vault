@@ -128,9 +128,14 @@ root
 
 5) Finally, test reading and writing secrets
 
+Write it
+```
 / # vault write secret/foo password=bar lease=1h
 Success! Data written to: secret/foo
+```
 
+Read it
+```
 / # vault read secret/foo
 Key            	Value
 lease_id       	secret/foo/37d4cfb7-98c0-e330-eb32-32c916d326ca
@@ -139,4 +144,4 @@ lease_renewable	%!d(string=true)
 lease          	1h
 password       	bar
 / # 
-
+```
