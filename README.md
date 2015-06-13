@@ -92,6 +92,7 @@ In a new terminal window, exec a shell.
 
 2) Initialize it and grab the keys - you need them to open the vault!
 
+```
 / # vault init 
 Key 1: 21f086ce697f5b5f8635d07d34b35c9124d043e3654d5df2dbe29f5da4d4979c01
 Key 2: be0092d8505d268cb0d25c447d6eaf8afb2d41ab40f6ffe322175dec36acac9102
@@ -102,10 +103,10 @@ Key 5: 09992094c82bb66ffeef7b5553109d93d9bff00fb2b3bb173c096aefecf887b805
 Initial Root Token: 112f9aa7-352f-a988-76d2-66f08599013e
 
 Vault initialized with 5 keys and a key threshold of 3!
+```
 
------------------------
 
-3) Auth with 3 of the keys to unseal the vault
+3) Unseal the vault with any 3 of 5 keys 3 
 
 ```
 / # vault unseal 21f086ce697f5b5f8635d07d34b35c9124d043e3654d5df2dbe29f5da4d4979c01
@@ -116,7 +117,7 @@ Vault initialized with 5 keys and a key threshold of 3!
 <snip>
 ```
 
-4) Then (in this case) you can auth with the root token
+4) Authenticate to the vault with root
 
 / # vault auth 112f9aa7-352f-a988-76d2-66f08599013e
 
