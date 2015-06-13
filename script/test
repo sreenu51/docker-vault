@@ -5,5 +5,5 @@ echo "Step1: Test for vault server install"
 docker run -t -i sometheycallme/vaultalpha help | grep Usage:
 
 echo "Step2: Initialize Vault and look for key creation"
-#docker run -t -i sometheycallme/vaultalpha version | grep Vault 
-docker run -t -i sometheycallme/vaultalpha "server -config=/opt/vault/vaultconfig.hcl" | grep started 
+docker run -t -i sometheycallme/vaultalpha server | grep started
+#docker run -t -i sometheycallme/vaultalpha "server -config=vaultconfig.hcl" | grep Error 
