@@ -130,12 +130,14 @@ Vault initialized with 5 keys and a key threshold of 3!
 
 4) Authenticate to the vault with root
 
+```
 / # vault auth 112f9aa7-352f-a988-76d2-66f08599013e
 
 Successfully authenticated! The policies that are associated
 with this token are listed below:
 
 root
+```
 
 5) Finally, test reading and writing secrets
 
