@@ -2,7 +2,7 @@
 set -e
 
 echo "Step1: Test for vault server install"
-docker run -t -i sometheycallme/vaultalpha help | grep Usage:
+docker run -t -i sometheycallme/vaultalpha help | grep -i usage:
 
 echo "Step2: Initialize Vault and look for key creation.  Mlock issue requires IPC_LOCK capability"
 echo "###INFO###"
@@ -10,4 +10,4 @@ echo "Circle CI will bail (no mem lock) init works outside of Circle CI"
 docker run -t -i --cap-add IPC_LOCK sometheycallme/vaultalpha server -config=/opt/vault/vaultconfig.hcl | grep Error
 
 echo "Step3: Check version"
-docker run -t -i sometheycallme/vaultalpha version | grep 0.1.2
+docker run -t -i sometheycallme/vaultalpha version | grep 0.6.0
