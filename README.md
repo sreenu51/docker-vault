@@ -68,7 +68,7 @@ find the image ID - in this case it's 6808800d3546 and tag it:
 
 ```sudo docker tag 6808800d3546 vaultalpha```
 
-This is the output with the assigned name tageright name on the newly created image
+This is the output with the assigned name tag right name on the newly created image
 
 ```
 REPOSITORY                    TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
