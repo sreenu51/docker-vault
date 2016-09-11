@@ -1,7 +1,8 @@
 FROM gliderlabs/alpine
 MAINTAINER Tim Kropp <timkropp77@gmail.com>
+ENV VAULT_VERSION 0.6.0
 
-ADD https://dl.bintray.com/mitchellh/vault/vault_0.1.2_linux_amd64.zip /tmp/vault.zip
+ADD https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip /tmp/vault.zip
 RUN cd /bin && unzip /tmp/vault.zip && chmod +x /bin/vault && rm /tmp/vault.zip
 
 COPY vaultconfig.hcl /opt/vault/vaultconfig.hcl
